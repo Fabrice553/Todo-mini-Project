@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= (typeof title !== 'undefined' ? title : 'Todo App') %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+      body { max-width: 900px; margin: 2rem auto; }
+      .task { display:flex; justify-content:space-between; align-items:center; padding:8px; border-bottom:1px solid #eee; }
+      .meta { font-size:12px; color:#666; }
+      .actions form { display:inline; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Todo App</a></h1>
+      <% if (typeof username !== 'undefined' && username) { %>
+        <div>Logged in as <strong><%= username %></strong>
+          <form method="post" action="/auth/logout" style="display:inline">
+            <button type="submit">Logout</button>
+          </form>
+        </div>
+      <% } %>
+    </header>
+    <main>
+      <%- body %>
+    </main>
+  </body>
+</html>
